@@ -17,7 +17,6 @@ var Wheel = require('blear.classes.wheel');
 
 var defaults = {
     el: '',
-    sectionSelector: '.section',
     slideAnimation: function (el, to, done) {
         done();
     }
