@@ -11,7 +11,7 @@
 var Animation = require('blear.classes.animation');
 var Fullpage = require('../src/index');
 
-new Fullpage({
+window.fp = new Fullpage({
     el: '#demo',
     slideAnimation: function (el, to, done) {
         var an = new Animation(el);

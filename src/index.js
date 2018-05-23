@@ -53,6 +53,8 @@ var Fullpage = Slider.extend({
     destroy: function () {
         var the = this;
 
+        the[_detachNode]();
+        the[_wheel].destroy();
         Fullpage.invoke('destroy', the);
     }
 });
@@ -60,6 +62,7 @@ var sole = Fullpage.sole;
 var proto = Fullpage.prototype;
 var _options = sole();
 var _initNode = sole();
+var _detachNode = sole();
 var _initWheel = sole();
 var _el = sole();
 var _listEl = sole();
@@ -76,6 +79,18 @@ proto[_initNode] = function () {
     });
 
     modification.insert(listEl, the[_el]);
+};
+
+proto[_detachNode] = function () {
+    var the = this;
+    var childEls = selector.children(the[_listEl]);
+
+    array.each(childEls, function (index, el) {
+        modification.insert(el, the[_el]);
+    });
+
+    modification.remove(the[_listEl]);
+    the[_el] = the[_listEl] = null;
 };
 
 proto[_initWheel] = function () {
