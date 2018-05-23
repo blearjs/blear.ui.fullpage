@@ -20,5 +20,11 @@ new Fullpage({
         an.start(done);
         an.destroy();
     }
-});
+})
+    .on('beforeSlide', function (index) {
+        console.log('beforeSlide', index);
+    })
+    .on('afterSlide', function (index) {
+        console.log('afterSlide', index);
+    });
 
