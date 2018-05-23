@@ -8,5 +8,17 @@
 'use strict';
 
 
+var Animation = require('blear.classes.animation');
+var Fullpage = require('../src/index');
 
+new Fullpage({
+    el: '#demo',
+    slideAnimation: function (el, to, done) {
+        var an = new Animation(el);
+
+        an.transit(to);
+        an.start(done);
+        an.destroy();
+    }
+});
 
